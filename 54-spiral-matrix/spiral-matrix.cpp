@@ -11,28 +11,28 @@ public:
         int right = matrix[0].size() - 1;
 
         while (top <= bottom && left <= right) {
-           
-            for (int i = left; i <= right; i++)
+            // Traverse top row
+            for (int i = left; i <= right; ++i)
                 result.push_back(matrix[top][i]);
-            top++;
+            ++top;
 
-            
-            for (int i = top; i <= bottom; i++)
+            // Traverse right column
+            for (int i = top; i <= bottom; ++i)
                 result.push_back(matrix[i][right]);
-            right--;
+            --right;
 
-           
+            // Traverse bottom row
             if (top <= bottom) {
-                for (int i = right; i >= left; i--)
+                for (int i = right; i >= left; --i)
                     result.push_back(matrix[bottom][i]);
-                bottom--;
+                --bottom;
             }
 
-            
+            // Traverse left column
             if (left <= right) {
-                for (int i = bottom; i >= top; i--)
+                for (int i = bottom; i >= top; --i)
                     result.push_back(matrix[i][left]);
-                left++;
+                ++left;
             }
         }
 
